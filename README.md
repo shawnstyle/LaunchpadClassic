@@ -1,92 +1,93 @@
 # Launchpad Classic
 
-给 Apple 芯片 Mac 使用的独立原生应用启动器。支持 macOS 14 及以上。
+A standalone native Launchpad-style application launcher for Apple Silicon Macs running macOS 14 or later.
 
-## 使用
+面向 Apple 芯片 Mac 的独立原生 Launchpad 风格应用启动器，适用于 macOS 14 及以上。
 
-- 双击 `Launchpad Classic.app`，或点击菜单栏九宫格图标。
-- 按 **Control + Option + 空格** 随时显示或收起。
-- 搜索支持中文名称、英文文件名、拼音及首字母。
-- 点击图标或选中后按回车启动应用。方向键选择，Page Up / Page Down 翻页。
-- 左右滑动触控板、滚动鼠标、点击底部圆点，或按 Command + 左右方向键翻页。
-- 将一个应用拖到另一个应用上创建文件夹，拖到已有文件夹上加入。
-- 点击展开文件夹上方的名称可直接编辑，回车保存；右键可展开文件夹或移出其中的应用。也可将图标拖到文件夹面板外移出。
-- 右键图标 →“移到页面”，或将图标拖到底部页码圆点来调整位置。
-- Esc 依次退出文件夹、清空搜索、收起启动器。点击背景也可收起。
-- 右键菜单栏九宫格，或右键顶部搜索栏，可刷新、添加其他位置的应用或启用“登录时启动”。
-- 在 Dock 上右键本应用 →“选项”→“在程序坞中保留”，即可把它当作旧版 Launchpad 的入口。
+## Download and install / 下载与安装
 
-1.1 版采用经典七列五行布局（每页 35 个应用），隐藏额外标题、右上角控件和底部提示。图标、文字、搜索栏、页码按苹果 Sequoia 参考图的比例随逻辑屏幕尺寸缩放。文件夹采用九宫格缩略图、居中可编辑名称和七列展开面板。切换应用时保留当前页与文件夹；点击背景、Esc、全局快捷键或启动应用可收起。
+1. Download the app ZIP from [Releases / 发布页面](https://github.com/shawnstyle/LaunchpadClassic/releases/latest).
+   从发布页面下载应用 ZIP 压缩包。
+2. Extract the ZIP, move `Launchpad Classic.app` into `/Applications` or `~/Applications`, and open it.
+   解压后将应用放入“应用程序”或用户应用程序目录，再双击打开。
+3. The installed app runs independently. Xcode, Python, a browser, and development tools are not needed at runtime.
+   安装后的应用可以独立运行，运行时无需 Xcode、Python、浏览器或开发工具。
 
-扫描 `/Applications`、`~/Applications`、`/System/Applications` 和系统应用目录。默认两分钟更新，也可按 Command + R 手动刷新。排列保存于本应用的本机偏好设置中；不修改系统应用数据库。
+The current build is arm64 only, uses an ad-hoc signature, and is not notarized by Apple. Another Mac may require confirmation in System Settings → Privacy & Security on first launch.
 
-## 构建和检查
+当前构建仅支持 arm64，使用本地临时签名，尚未经过 Apple 公证；在其他 Mac 首次打开时，可能需要在“系统设置 → 隐私与安全性”中确认。
 
-需要 Xcode 或已配置的 Swift 命令行开发环境。若提示许可协议未接受，请先由本人运行 `sudo xcodebuild -license` 阅读并处理协议。
+## Usage / 使用
+
+| Action / 操作 | Instructions / 说明 |
+| --- | --- |
+| Show or hide / 显示或收起 | Double-click the app, click its Dock or menu-bar icon, or press **Control + Option + Space**.<br>双击应用、点击 Dock 或菜单栏图标，或按 **Control + Option + 空格**。 |
+| Search / 搜索 | Search by Chinese or English name, pinyin, or initials.<br>支持中文名称、英文名称、拼音及首字母搜索。 |
+| Launch / 启动 | Click an app icon, or select it with arrow keys and press Return.<br>点击图标，或使用方向键选择后按回车。 |
+| Change page / 翻页 | Swipe horizontally on a trackpad, click page dots, use Page Up / Page Down, or press Command + Left / Right.<br>横向滑动触控板、点击页码圆点、使用 Page Up / Page Down，或按 Command + 左右方向键。 |
+| Mouse paging / 鼠标翻页 | Drag horizontally from a blank area. Scroll down for the next page and up for the previous page; scroll direction follows system events.<br>从空白处按住鼠标左右拖动；滚轮向下进入下一页、向上返回上一页，方向遵循系统滚动事件。 |
+| Reorder / 排列 | Drag an icon to move it. Ordinary dragging causes temporary jiggle that stops on release.<br>拖动图标调整位置；普通拖动只临时抖动，松手后停止。 |
+| Persistent editing / 持续编辑 | Hold an icon still for about 0.55 seconds. Click a blank area or press Escape to end editing.<br>按住图标不动约 0.55 秒进入持续编辑，点击空白或按 Esc 退出。 |
+| Create a folder / 新建文件夹 | Hold one app over another app's center, then release. The new folder opens and requests name editing after the expansion animation.<br>将应用停留在另一应用中心后松手；新文件夹展开，并在展开动画后请求编辑名称。 |
+| Edit a folder / 编辑文件夹 | Click its title and press Return to save. Drag onto an existing folder to add an app; drag outside its panel to move an app out.<br>点击标题编辑名称并回车保存；拖入已有文件夹添加应用，拖到展开面板外移出应用。 |
+| Move between pages / 跨页移动 | Use the icon context menu, hold near the screen edge, or hover over a page dot while dragging.<br>使用图标右键菜单、在屏幕边缘停留，或拖动时悬停在页码圆点上。 |
+| Refresh / 刷新 | Press Command + R. The app also scans periodically; use the menu to add other app locations.<br>按 Command + R 刷新；应用也会定时扫描，可通过菜单添加其他应用位置。 |
+| Return or close / 返回或关闭 | Escape cancels a drag first, then ends editing, closes a folder, clears search, or hides the launcher as applicable. A blank click ends editing before hiding.<br>Esc 优先取消拖动，然后依当前状态结束编辑、关闭文件夹、清空搜索或收起界面；编辑时点击空白先退出编辑。 |
+| Login and quit / 登录启动与退出 | The menu-bar context menu provides login-at-startup and quit actions. Command + Q also quits.<br>菜单栏右键菜单提供登录启动及退出选项，也可按 Command + Q 退出。 |
+
+The launcher scans standard application directories, including `/Applications`, `~/Applications`, and `/System/Applications`. Layouts and folders are stored locally in macOS preferences; the system application database is not modified.
+
+启动器扫描上述标准应用目录。排列和文件夹保存在本机 macOS 偏好设置中，不修改系统应用数据库。
+
+## Build, test, and package / 构建、检查与打包
+
+Building requires Xcode or a configured Swift command-line development environment on an Apple Silicon Mac. If an Xcode license prompt appears, the computer owner must review and handle it with `sudo xcodebuild -license`.
+
+构建需要 Apple 芯片 Mac，以及 Xcode 或已配置的 Swift 命令行开发环境；若提示 Xcode 协议未接受，需要由本人运行上述命令阅读并处理。
 
 ```bash
 bash test.sh
 bash build.sh
-```
-
-输出：`build/Launchpad Classic.app`。应用使用本地临时签名，没有 Apple 公证。最低部署版本 macOS 14，构建架构 arm64。
-
-## 范围
-
-这是独立启动器，不是恢复苹果已移除的系统组件。未接管系统的触控板捏合手势或专用 Launchpad 功能键；使用 Dock、菜单栏或全局快捷键。应用本身不需要辅助功能或屏幕录制权限。快捷键若被其他软件占用，会在设置菜单中提示。
-
-应用仅通过系统 API 打开应用，不执行应用名称拼接的 shell 命令，无外部依赖和网络请求。退出可在设置菜单或菜单栏右键菜单中选择；Command + Q 也可退出。
-
-## 视觉参考与限制
-
-参考苹果 macOS Sequoia Launchpad 页面：
-https://support.apple.com/en-ie/guide/mac-mini/aside/apd2d2a58738/2024/mac/15
-
-基于公开截图测量比例，基础逻辑尺寸为 1512 × 982：图标画布 96 pt、文字 13 pt、搜索栏 250 × 26 pt、七列五行。其他屏幕按宽高共同约束的比例缩放。这里是截图校准的复刻参数，不是苹果公开的内部实现常量。
-
-应用图标从当前安装的应用取得，因此系统升级后改变的图标不会自动变回 Sequoia 版本。模糊、材质和字体渲染由当前 macOS 实现；尚无同设备原版截图作为逐像素验证基准，不宣称 100% 像素一致。
-
-1.1.1 修复：点击应用图标或按回车时立即收起启动器，不再等待系统启动完成回调；启动失败才重新显示错误界面。
-
-1.1.2 修复：再次点击启动器自身的 Dock 图标（或重新打开已运行的程序）时，显示中的界面会收起；界面已收起时会重新显示。
-
-## 1.2 动画交互
-
-- 打开、收起及启动应用时的缩放、淡入淡出与背景模糊。
-- 页面改为横向平移；触控板有连续位移、抬手吸附和边界回弹。
-- 长按进入排列抖动，拖动时浮动图标跟随、原位变淡、目标让位。
-- 悬停后成组、已有文件夹自动展开、窗口边缘停留翻页。
-- 取消或窗口外释放时归位，成功落下后才保存排列。
-- 按 Esc 先取消拖动或结束排列；文件夹、搜索和界面随后依次返回。
-
-验证明细与仍未接入的交互见 [交互动画清单](交互动画清单.md)。不宣称已与原版逐帧完全一致。
-
-
-## 1.2.1 编辑与新文件夹
-
-- 直接拖动仅临时抖动，松手时停止；图标落位动画继续完成。
-- 按住图标不移动约 0.55 秒进入持续编辑模式，松手后保持。点击空白退出编辑，界面保持显示。此模式下继续拖动仍保留编辑状态，直到点击空白或按 Esc。
-- 两个应用悬停成组并成功落下后，先完成缩入动画，再展开新文件夹；展开后自动聚焦名称并全选，直接输入新名称，回车保存。
-- 加入已有文件夹不会触发新建命名；取消拖动或提前关闭文件夹会撤销待执行的命名请求。
-
-
-## 1.2.2 鼠标翻页
-
-- 在空白区域按住鼠标左键左右拖动，页面跟随移动，松手后按距离和速度吸附或回弹。向左拖进入下一页，向右拖返回上一页。
-- 普通鼠标滚轮向下进入下一页，向上返回上一页；也支持横向滚轮及无阶段信息的高精度垂直滚轮。滚轮方向遵循系统传入的滚动方向。
-- 普通滚轮每格可以触发翻页，同向连续事件有短暂节流，避免瞬间跳多页；反向滚动立即响应。
-- 文件夹超过一页时同样支持鼠标翻页；单页拖动不翻页，也不会误当作空白单击。
-- 鼠标拖动翻页不会进入图标抖动模式；从图标开始拖动仍用于排列图标。Esc 可取消正在进行的鼠标翻页。
-
-
-## 公开发布与隐私
-
-公开版使用通用应用标识 `org.launchpadclassic.app`，不包含开发者个人标识。此前自用版本采用不同标识，公开版不会自动迁移其排列设置；本次发布不更改已有本机安装。
-
-应用数据只保存在本机，无账号登录、遥测或网络上传。完整说明见 [PRIVACY.md](PRIVACY.md)。
-
-```bash
 bash package-release.sh
 ```
 
-打包脚本仅收录应用 bundle 中的文件，保留可执行权限，不复制文件扩展属性、资源叉或 AppleDouble 元数据，同时生成 SHA-256 校验文件。
+The app is written to `build/Launchpad Classic.app`. Release ZIPs and SHA-256 checksums are written under `.build/releases/`. Packaging preserves executable permissions while omitting extended attributes, resource forks, and AppleDouble metadata.
+
+应用输出到上述 `build` 路径；发布 ZIP 和 SHA-256 校验文件保存在 `.build/releases/`。打包保留可执行权限，不复制扩展属性、资源叉或 AppleDouble 元数据。
+
+## Privacy / 隐私
+
+The app has no account login, telemetry, or network upload. It reads app information and wallpaper locally and stores its preferences on the computer. See [Privacy / 隐私说明](PRIVACY.md).
+
+应用不提供账号登录、遥测或网络上传，应用信息与壁纸均在本机读取，偏好设置保存在本机。完整说明见隐私文档。
+
+The public bundle identifier is `org.launchpadclassic.app`. Earlier private builds used a different identifier; their saved layouts are not migrated automatically. Publishing the public build does not modify an existing local installation.
+
+公开版采用通用应用标识。此前自用版本使用不同标识，其排列不会自动迁移；公开发布操作不更改已有本机安装。
+
+## Visual references and limits / 视觉参考与限制
+
+The classic layout uses seven columns and five rows. Proportions were calibrated against Apple's [macOS Sequoia Launchpad reference / 原版参考图](https://support.apple.com/en-ie/guide/mac-mini/aside/apd2d2a58738/2024/mac/15): a 1512 × 982 reference canvas, 96 pt icon canvas, 13 pt labels, and a 250 × 26 pt search field. These are replica calibration values, not published Apple implementation constants.
+
+经典布局采用七列五行；基础比例依据苹果参考图校准。上述尺寸为复刻参数，不是苹果公开的内部实现常量。
+
+Icons come from locally installed apps. Materials and fonts are rendered by the current macOS version. Pixel-perfect or frame-perfect parity with the original is not claimed. System pinch gestures, the dedicated Launchpad key, Dock drops, App Store installation progress, and system uninstall controls are outside the current scope.
+
+图标来自本机已安装应用，材质和字体由当前 macOS 渲染；未宣称与原版逐像素或逐帧完全一致。系统捏合手势、专用 Launchpad 键、拖入 Dock、App Store 安装进度及系统卸载控件尚未接入。
+
+## Version history / 版本记录
+
+| Version / 版本 | Changes / 变化 |
+| --- | --- |
+| 1.1 | Classic grid, search proportions, and editable folders.<br>经典网格、搜索比例及可编辑文件夹。 |
+| 1.1.1 | Hide immediately when launching an app; delayed callbacks cannot close a reopened session.<br>启动应用时立即收起，迟到回调不会关闭后来重新打开的界面。 |
+| 1.1.2 | Reopening the launcher from its own icon toggles visibility.<br>再次点击启动器自身图标可切换显示与收起。 |
+| 1.2 | Page, drag, folder, and presentation animations with cancellation and rollback.<br>分页、拖动、文件夹及显示动画，支持取消与回滚。 |
+| 1.2.1 | Separate transient drag jiggle from persistent editing; open and request naming for new folders.<br>区分拖动临时抖动与持续编辑，新文件夹自动展开并请求命名。 |
+| 1.2.2 | Mouse dragging and wheel paging, release prediction, damping, and input-conflict handling.<br>鼠标拖动与滚轮翻页、释放预测、边界阻尼及输入冲突处理。 |
+
+## Documentation / 文档
+
+- [Privacy / 隐私说明](PRIVACY.md)
+- [Validation record / 验证记录](VALIDATION.md)
+- [Interaction and animation status / 交互动画状态](MOTION_STATUS.md)
