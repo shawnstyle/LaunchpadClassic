@@ -43,4 +43,4 @@ done
 iconutil -c icns .build/AppIcon.iconset -o "$app/Contents/Resources/AppIcon.icns"
 codesign --force --sign - "$app"
 codesign --verify --deep --strict "$app"
-printf '已生成：%s\n' "$app"
+printf '已生成 / Built: %s\n' "$app"

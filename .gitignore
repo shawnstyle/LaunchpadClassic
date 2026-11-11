@@ -4,8 +4,7 @@ build/
 .codex/
 .agents/
 AGENTS.md
-GitHub发布记录.md
-发布脱敏检查.md
+*.local.md
 .env
 .env.*
 !.env.example
